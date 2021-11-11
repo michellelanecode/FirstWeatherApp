@@ -1,0 +1,23 @@
+.container {
+border-style: solid; 
+border-color: #ECB938;
+width: 600px; 
+height: 500px; 
+
+}
+
+.searchBar {
+    width: 300px;
+    border-radius: 25px;
+    
+}
+.searchBarButton {
+    border-radius: 20px;
+    background-color: #F0C75E;
+    border-color: #372E29;
+}
+button {
+    border-radius: 25px;
+    border-color: #372E29;
+    background-color: #F0C75E;
+}
