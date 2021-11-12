@@ -103,13 +103,13 @@ function showTemperature(response) {
   currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
   
   if (response.data.daily[0].rain !== null) {
-     rain.innerHTML = `${response.data.daily[0].rain}%`;
+     rain.innerHTML = `Precipitation: ${response.data.daily[0].rain}%`;
   } else {
     rain.innerHTML = `0%`
   }
 
-  humidity.innerHTML = `${response.data.current.humidity}°`;
-  wind.innerHTML = `<small>${response.data.current.wind_speed}mph/mps</small> Gust: <small>${response.data.current.wind_gust}mph/mps</small> Direction: <small>${response.data.current.wind_deg}°</small>`;
+  humidity.innerHTML = `Humidity: ${response.data.current.humidity}°`;
+  wind.innerHTML = `Wind: <small>${response.data.current.wind_speed}mph/mps</small> Gust: <small>${response.data.current.wind_gust}mph/mps</small>`;
     currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
     for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
