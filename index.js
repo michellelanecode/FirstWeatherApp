@@ -28,16 +28,16 @@ let months = [
   "December",
 ];
 // current weather selectors 
-let description = document.querySelector("description");
-let precipitation = document.querySelector("precipitation");
-let humidity = document.querySelector("humidity");
-let wind = document.querySelector("wind");
+let description = document.querySelector(".description");
+let precipitation = document.querySelector(".precipitation");
+let humidity = document.querySelector(".humidity");
+let wind = document.querySelector(".wind");
 let currentTemp = document.getElementById("currentTemp");
 let currentWeatherIcon = document.getElementById("currentWeatherIcon");
 
 //search bar selectors
-let searchForm = document.querySelector("searchBarButton");
-let currentLocationButton = document.querySelector("button");
+let searchForm = document.querySelector(".searchBarButton");
+let currentLocationButton = document.querySelector(".button");
 
 // link information and selectors
 let fahrenheitLink = document.getElementById("fahrenheit-link");
@@ -101,6 +101,7 @@ function showTemperature(response) {
     console.log(response);
     let icon = response.data.current.weather[0].icon;
   currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
+  
   if (response.data.daily[0].rain !== null) {
      precipitation.innerHTML = `${response.data.daily[0].rain}%`;
   } else {
