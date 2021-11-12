@@ -144,7 +144,7 @@ function changeWeather(event) {
     } else {
         axios
       .get(
-        `http://api.openweathermap.org/geo/1.0/zip?zip=${weather}&appid=f2985cb429c8538026b7f0c5af55bd4f`
+        `https://api.openweathermap.org/geo/1.0/zip?zip=${weather}&appid=f2985cb429c8538026b7f0c5af55bd4f`
       ).then(zipCodeCheck)
     }
 };
