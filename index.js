@@ -133,9 +133,9 @@ function showPosition(response) {
     let lat = response.coords.latitude;
     let lon = response.coords.longitude;
     axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
     ).then(showTemperatureName);
-    axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`).then(showTemperature);
+    axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`).then(showTemperature);
 };
 
 navigator.geolocation.getCurrentPosition(showPosition)
@@ -154,7 +154,7 @@ function changeWeather(event) {
     let weather = searchBar.value;
             axios
                 .get(
-                    `${apiUrl}${weather}&appid=${apiKey}`
+                    `${apiUrl}${weather}&units=imperial&appid=${apiKey}`
                 )
                 .then(showTemperatureName);
 };
