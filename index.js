@@ -146,7 +146,7 @@ navigator.geolocation.getCurrentPosition(showPosition)
 
 //current Location button 
 
-currentLocationButton.addEventListener("click", (event) => {
+currentLocationWeather.addEventListener("click", (event) => {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(showPosition);
 
