@@ -103,7 +103,6 @@ function showTemperatureName(response) {
 }
 
 function showTemperature(response) {
-    console.log(response);
     let icon = response.data.current.weather[0].icon;
   currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
   
