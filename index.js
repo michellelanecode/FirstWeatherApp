@@ -118,7 +118,7 @@ function showTemperature(response) {
   currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
   
 
-  for (let i = 0; i < 5; i++;){
+  for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
       futureWeatherIcons[i].innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" class=futureWeatherImg>`;
       futureDate[i].innerHTML = `${currentTime.getMonth() + 1}/${day + i}`;
