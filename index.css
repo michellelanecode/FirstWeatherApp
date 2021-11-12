@@ -6,9 +6,7 @@ padding: 20px;
 max-height: 800px;
 max-width: 800px; 
 margin: 0px auto;
-
 }
-
 
 .currentWeatherInfo {
 display: grid;
@@ -81,8 +79,6 @@ a {
 .futureDate {
     font-style: italic;
 }
-
-
 
 
 .highFutureWeather{
