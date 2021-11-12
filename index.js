@@ -114,8 +114,10 @@ function showTemperature(response) {
 
   humidity.innerHTML = `Humidity: ${response.data.current.humidity}°`;
   wind.innerHTML = `Wind: <small>${Math.round(response.data.current.wind_speed)}mph/mps</small>`;
-    currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
-    for (let i = 0; i < 5; i++){
+  currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
+  
+
+    for (let i = 1; i < 6; i++){
       let icon = response.data.daily[i].weather[0].icon;
       futureWeatherIcons[i].innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" class=futureWeatherImg>`;
         futureDate[i].innerHTML = `${currentTime.getMonth() + 1}/${day + i}`;
