@@ -100,7 +100,7 @@ function showTemperatureName(response) {
 function showTemperature(response) {
     console.log(response);
     let icon = response.data.current.weather[0].icon;
-    currentTemp.innerHTML = `${Math.round((parseInt(response.data.current.temp) - 273.15) * 9/5 + 32)}°`;
+    currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
     currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
     for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
