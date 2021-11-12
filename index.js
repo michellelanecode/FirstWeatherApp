@@ -46,6 +46,15 @@ let kelvinConversion = 273.15 * 9 / 5 + 32;
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 let apiKey = "f2985cb429c8538026b7f0c5af55bd4f"
 
+
+//future weather 
+
+let futureWeatherIcons = document.querySelectorAll(".futureWeatherIcons");
+let futureDate = document.querySelectorAll(".futuredate");
+let futureHigh = document.querySelectorAll(".highFutureWeather");
+let futureLow = document.querySelectorAll(".lowFutureWeather");
+
+
 function timeControls() {
     for (let i = 0; i < months.length; i++) {
       if (month === i) {
@@ -72,23 +81,44 @@ fahrenheitLink.classList.add("active");
 
 
 function showTemperatureName(response) {
+    console.log(response);
     currentCityName.innerHTML = `${response.data.name}, ${response.data.sys.country}`
     let lat = response.data.coord.lat;
     let lon = response.data.coord.lon;
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-      )
-      .then(showTemperature);
+
+    if (celciusLink.classList.contains("active")) {
+        axios
+            .get(
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+            )
+            .then(showTemperature);
+    } else {
+        axios
+            .get(
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
+            )
+            .then(showTemperature);
+    }
 }
 
 function showTemperature(response) {
-    console.log(response)
+    console.log(response);
     let icon = response.data.current.weather[0].icon;
-    let kelvinConversion = (response.data.current.temp - 273.15) * 9 / 5 + 32;
-    currentTemp.innerHTML = `${Math.round(kelvinConversion)}°`
-    currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;    
-}
+    currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
+    currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
+    for (let i = 0; i < 5; i++){
+      let icon = response.data.daily[i].weather[0].icon;
+      futureWeatherIcons[
+        i
+      ].innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
+        futureDate[i].innerHTML = `${month} ${day + i}, ${year}`;
+        let high = Math.round(response.data.daily[i].temp.max);
+        let low = Math.round(response.data.daily[i].temp.min);
+      futureHigh[i].innerHTML = `${high}°`
+      futureLow[i].innerHTML = `${low}°`
+    }
+};
+
 
 function showPosition(response) {
     let lat = response.coords.latitude;
@@ -113,40 +143,14 @@ currentLocationButton.addEventListener("click", (event) => {
 
 })
 
-
-
-// change city button responses
-
-function zipCodeCheck(response) {
-    let lat = response.data.lat;
-    let lon = response.data.lon;
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-      )
-      .then(showTemperatureName);
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-      )
-      .then(showTemperature);
-}
-
 function changeWeather(event) {
     event.preventDefault();
     let weather = searchBar.value;
-    if (isNaN(weather)) {
-        axios
-          .get(
-            `${apiUrl}${weather}&appid=${apiKey}`
-          )
-          .then(showTemperatureName);
-    } else {
-        axios
-      .get(
-        `https://api.openweathermap.org/geo/1.0/zip?zip=${weather}&appid=f2985cb429c8538026b7f0c5af55bd4f`
-      ).then(zipCodeCheck)
-    }
+            axios
+                .get(
+                    `${apiUrl}${weather}&appid=${apiKey}`
+                )
+                .then(showTemperatureName);
 };
 
 findLocation.addEventListener("submit", changeWeather);
@@ -157,12 +161,14 @@ fahrenheitLink.addEventListener("click",(event)=>{
     event.preventDefault();
     celciusLink.classList.remove("active");
     fahrenheitLink.classList.add("active");
-    currentTemp.innerHTML = `${parseInt(currentTemp.innerHTML) + 32}°`; 
+    axios.get(`${apiUrl}${currentCityName.innerHTML}&appid=${apiKey}`).then(showTemperatureName);
 })
 
 celciusLink.addEventListener("click",(event)=> {
     event.preventDefault();
     celciusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
-    currentTemp.innerHTML = `${ parseInt(currentTemp.innerHTML) - 32 }°`;
+    axios
+      .get(`${apiUrl}${currentCityName.innerHTML}&units=metric&appid=${apiKey}`)
+      .then(showTemperatureName);
 })
