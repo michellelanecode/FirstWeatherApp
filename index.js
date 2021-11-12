@@ -128,7 +128,6 @@ function showTemperature(response) {
     }
 };
 
-
 function showPosition(response) {
     let lat = response.coords.latitude;
     let lon = response.coords.longitude;
@@ -139,9 +138,6 @@ function showPosition(response) {
 };
 
 navigator.geolocation.getCurrentPosition(showPosition)
-
-
-
 
 
 //current Location button 
@@ -166,18 +162,18 @@ findLocation.addEventListener("submit", changeWeather);
 
 //change celcius and fahrenheit 
 
-fahrenheitLink.addEventListener("click",(event)=>{
-    event.preventDefault();
-    celciusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    axios.get(`${apiUrl}${currentCityName.innerHTML}&appid=${apiKey}`).then(showTemperatureName);
-})
+fahrenheitLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  axios.get(`${apiUrl}${currentCityName.innerHTML}&appid=${apiKey}`).then(showTemperatureName);
+});
 
-celciusLink.addEventListener("click",(event)=> {
-    event.preventDefault();
-    celciusLink.classList.add("active");
-    fahrenheitLink.classList.remove("active");
-    axios
-      .get(`${apiUrl}${currentCityName.innerHTML}&units=metric&appid=${apiKey}`)
-      .then(showTemperatureName);
-})
+celciusLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  axios
+    .get(`${apiUrl}${currentCityName.innerHTML}&units=metric&appid=${apiKey}`)
+    .then(showTemperatureName);
+});
