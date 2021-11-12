@@ -86,7 +86,6 @@ function showTemperatureName(response) {
     currentCityName.innerHTML = `${response.data.name}, ${response.data.sys.country}`
     let lat = response.data.coord.lat;
     let lon = response.data.coord.lon;
-
     if (celciusLink.classList.contains("active")) {
         axios
             .get(
@@ -106,17 +105,14 @@ function showTemperature(response) {
   console.log(response);
     let icon = response.data.current.weather[0].icon;
   currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
-  
+    humidity.innerHTML = `Humidity: ${response.data.current.humidity}°`;
+    wind.innerHTML = `Wind: <small>${Math.round(response.data.current.wind_speed)}mph/mps</small>`;
+    currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
   if (response.data.daily[0].rain !== null) {
      rain.innerHTML = `Precipitation: ${response.data.daily[0].rain}%`;
   } else {
     rain.innerHTML = `0%`
-  }
-
-  humidity.innerHTML = `Humidity: ${response.data.current.humidity}°`;
-  wind.innerHTML = `Wind: <small>${Math.round(response.data.current.wind_speed)}mph/mps</small>`;
-  currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
-  
+  };
 
   for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
@@ -126,7 +122,7 @@ function showTemperature(response) {
       let low = Math.round(response.data.daily[i].temp.min);
       futureHigh[i].innerHTML = `${high}°`
       futureLow[i].innerHTML = `${low}°`
-    }
+  };
 };
 
 function showPosition(response) {
