@@ -17,16 +17,69 @@
 </head>
 <body>
     <div class="container">
+     <div class="row">
+         
+                 <div class="col">
+                <ul>
+           <span id="currentCity">
+               <li id="currentCityName"> Kissimmee, FL <li>
+                <li id="currentDate">
+                </li>
+                <li class="description">
+                </li>
+            </ul>
+            </span>
+            
+            </div>
+            </div>
+            <div class="col">
+            
+                    <div class ="currentWeather">
+                    <span id="currentWeatherIcon"></span>
+                    <span id="currentTemp">69°</span> 
+                    <span class="units"><a id="celciusLink" class ="active"> °C</a>|<a href=# id="fahrenheit-link">°F</a></span>
+                </div>
+                </div>
+                <div class="col">
+                    <div class= "temperatureInfo">
+                    <ul>
+                        <li class="precipitation">
+                            Precipitation 
+                        </li>
+                        <li class="humidity">
+                            Humidity
+                        </li>
+                        <li class="wind">
+                            Wind
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                
+            
+            <!-- <div class="row">
+                <ul>
+                    <li> Day One Weather </li>
+                    <li> Day Two Weather </li>
+                    <li> Day Three Weather </li>
+                    <li> Day Four Weather</li>
+                    <li> Day Five Weather </li>
+                </ul>
+            </div> -->
+            <div class ="row">
         <div class="searching">
     <form>
-        <input type="text" class="searchBar" placeholder="Enter a city or zipcode">
+        <input type="text" id="searchBar" placeholder="Enter a city or zipcode">
         <input type="submit" class="searchBarButton" value="Get Weather" >
     </form>
     <button>Current Location</button>
     </div>
     </div>
+    <small><a href="https://github.com/michellelanecode/FirstWeatherApp.git">Open source code</a>, by Michelle Lane</small>
+    </div>
 
 
-    <script src="index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script> 
 </body>
 </html>
