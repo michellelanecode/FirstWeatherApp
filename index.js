@@ -45,7 +45,8 @@ let celciusLink = document.getElementById("celciusLink")
 let kelvinConversion = 273.15 * 9 / 5 + 32;
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 let apiKey = "f2985cb429c8538026b7f0c5af55bd4f"
-
+celciusLink.classList.remove("active");
+fahrenheitLink.classList.add("active");
 
 //future weather 
 
@@ -74,14 +75,9 @@ timeControls();
 // current Time 
 todayDate.innerHTML = `${month} ${day}, ${year} </br> ${hour}:${min}`;
 
-celciusLink.classList.remove("active")
-fahrenheitLink.classList.add("active");
-
 // current Location weather functions: 
 
-
 function showTemperatureName(response) {
-    console.log(response);
     currentCityName.innerHTML = `${response.data.name}, ${response.data.sys.country}`
     let lat = response.data.coord.lat;
     let lon = response.data.coord.lon;
@@ -104,7 +100,7 @@ function showTemperatureName(response) {
 function showTemperature(response) {
     console.log(response);
     let icon = response.data.current.weather[0].icon;
-    currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
+    currentTemp.innerHTML = `${Math.round((parseInt(response.data.current.temp) - 273.15) * 9/5 + 32)}°`;
     currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
     for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
