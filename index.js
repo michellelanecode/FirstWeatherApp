@@ -28,10 +28,10 @@ let months = [
   "December",
 ];
 // current weather selectors 
-let description = document.querySelector(".description");
-let precipitation = document.querySelector(".precipitation");
-let humidity = document.querySelector(".humidity");
-let wind = document.querySelector(".wind");
+let description = document.querySelector("description");
+let rain = document.getElementById("rain");
+let humidity = document.getElementById("humidity");
+let wind = document.getElementById("wind");
 let currentTemp = document.getElementById("currentTemp");
 let currentWeatherIcon = document.getElementById("currentWeatherIcon");
 
@@ -103,12 +103,11 @@ function showTemperature(response) {
   currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
   
   if (response.data.daily[0].rain !== null) {
-     precipitation.innerHTML = `${response.data.daily[0].rain}%`;
+     rain.innerHTML = `${response.data.daily[0].rain}%`;
   } else {
-    precipitation.innerHTML = `0%`
+    rain.innerHTML = `0%`
   }
 
-  precipitation.innerHTML = ``;
   humidity.innerHTML = `${response.data.current.humidity}°`;
   wind.innerHTML = `<small>${response.data.current.wind_speed}mph/mps</small> Gust: <small>${response.data.current.wind_gust}mph/mps</small> Direction: <small>${response.data.current.wind_deg}°</small>`;
     currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
