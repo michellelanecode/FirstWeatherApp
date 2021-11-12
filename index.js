@@ -40,8 +40,8 @@ let searchForm = document.querySelector(".searchBarButton");
 let currentLocationButton = document.querySelector(".button");
 
 // link information and selectors
-let fahrenheitLink = document.getElementById("fahrenheit-link");
-let celciusLink = document.getElementById("celciusLink")
+let fahrenheitLink = document.getElementById("imperial");
+let celciusLink = document.getElementById("metric")
 let kelvinConversion = 273.15 * 9 / 5 + 32;
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 let apiKey = "f2985cb429c8538026b7f0c5af55bd4f"
@@ -51,7 +51,7 @@ fahrenheitLink.classList.add("active");
 //future weather 
 
 let futureWeatherIcons = document.querySelectorAll(".futureWeatherIcons");
-let futureDate = document.querySelectorAll(".futuredate");
+let futureDate = document.querySelectorAll(".futureDate");
 let futureHigh = document.querySelectorAll(".highFutureWeather");
 let futureLow = document.querySelectorAll(".lowFutureWeather");
 
