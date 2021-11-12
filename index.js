@@ -100,7 +100,15 @@ function showTemperatureName(response) {
 function showTemperature(response) {
     console.log(response);
     let icon = response.data.current.weather[0].icon;
-    currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
+  currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
+  if (response.data.daily[0].rain) {
+     precipitation.innerHTML = `${response.data.daily[0].rain}%`;
+  } else {
+    precipitation.innerHTML = `0%`
+  }
+  precipitation.innerHTML = ``;
+  humidity.innerHTML = `${response.data.current.humidity}°`;
+  wind.innerHTML = `<small>${response.data.current.wind_speed}mph/mps</small> Gust: <small>${response.data.current.wind_gust}mph/mps</small> Direction: <small>${response.data.current.wind_deg}°</small>`;
     currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
     for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
