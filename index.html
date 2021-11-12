@@ -17,30 +17,27 @@
 </head>
 <body>
     <div class="container">
-     <div class="row">
-         
-                 <div class="col">
-                <ul>
-           <span id="currentCity">
-               <li id="currentCityName"> Kissimmee, FL <li>
-                <li id="currentDate">
-                </li>
-                <li class="description">
-                </li>
-            </ul>
-            </span>
-            
+       <div class ="row">
+        <div class="searching">
+    <form>
+        <input type="text" id="searchBar" placeholder="Enter a city name">
+        <input type="submit" class="searchBarButton" value="Get Weather" >
+        <button>Current Location</button>
+    </form>
+
+    
+     <div class="currentWeatherInfo">
+                 <div class="city">
             </div>
             </div>
-            <div class="col">
-            
+            <div class="cityInfo">
                     <div class ="currentWeather">
                     <span id="currentWeatherIcon"></span>
                     <span id="currentTemp">69°</span> 
                     <span class="units"><a id="celciusLink" class ="active"> °C</a>|<a href=# id="fahrenheit-link">°F</a></span>
                 </div>
                 </div>
-                <div class="col">
+                <div class="tempInfo">
                     <div class= "temperatureInfo">
                     <ul>
                         <li class="precipitation">
@@ -55,53 +52,44 @@
                     </ul>
                     </div>
                 </div>
-                
-            
-            <div class="row">
-                    <div class ="col" id="dayOne">
+                    <ul>
+           <span id="currentCity">
+               <li id="currentCityName"> Kissimmee, FL <li>
+                <li id="currentDate">
+                </li>
+                <li class="description">
+                </li>
+            </ul>
+            </span>
+                <br>
+          
+    
+  </div></div>
+            <div id="futureForecast">
+                    <div class="colInfo" id="dayOne">
                         <span class="futuredate"></span>
                         <span class="futureWeatherIcons"></span>
-                        <span class="highFutureWeather"></span>|
-                        <span class="lowFutureWeather"></span>
+                        <span class="highFutureWeather"></span>|<span class="lowFutureWeather"></span>
                     </div>
-                    <div class ="col" id="dayTwo">
+                    <div class="colInfo" id="dayTwo">
                         <span class="futuredate"></span>
                          <span class="futureWeatherIcons"></span>
-                          <span class="highFutureWeather"></span>|
-                        <span class="lowFutureWeather"></span>
+                          <span class="highFutureWeather"></span>|<span class="lowFutureWeather"></span>
                     </div>
-                    <div class="col" id="dayThree">
+                    <div class="colInfo"id="dayThree">
                         <span class="futuredate"></span>
                          <span class="futureWeatherIcons"></span>
-                          <span class="highFutureWeather"></span>|
-                        <span class="lowFutureWeather"></span>
+                          <span class="highFutureWeather"></span>|<span class="lowFutureWeather"></span>
                     </div>
-                    <div class="col" id="dayFour">
+                    <div class="colInfo"id="dayFour">
                         <span class="futuredate"></span>
                          <span class="futureWeatherIcons"></span>
-                          <span class="highFutureWeather"></span>|
-                        <span class="lowFutureWeather"></span>
+                          <span class="highFutureWeather"></span>|<span class="lowFutureWeather"></span>
                     </div>
-                    <div class="col" id="dayFive">
-                        <span class="futuredate"></span>
-                         <span class="futureWeatherIcons"></span>
-                          <span class="highFutureWeather"></span>|
-                        <span class="lowFutureWeather"></span>
-                    </div>
-            </div>
-            <div class ="row">
-        <div class="searching">
-    <form>
-        <input type="text" id="searchBar" placeholder="Enter a city name">
-        <input type="submit" class="searchBarButton" value="Get Weather" >
-    </form>
-    <button>Current Location</button>
-    </div>
-    </div>
-    <small><a href="https://github.com/michellelanecode/FirstWeatherApp.git">Open source code</a>, by Michelle Lane</small>
-    </div>
+                </div>
+          <br><br>
 
-
+<small><a href="https://github.com/michellelanecode/FirstWeatherApp.git">Open source code</a>, by Michelle Lane</small>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script> 
 </body>
