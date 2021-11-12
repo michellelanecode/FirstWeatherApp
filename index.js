@@ -86,7 +86,7 @@ function showTemperature(response) {
     let icon = response.data.current.weather[0].icon;
     let kelvinConversion = (response.data.current.temp - 273.15) * 9 / 5 + 32;
     currentTemp.innerHTML = `${Math.round(kelvinConversion)}°`
-    currentWeatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">`;    
+    currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;    
 }
 
 function showPosition(response) {
