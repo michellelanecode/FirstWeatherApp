@@ -51,7 +51,7 @@ fahrenheitLink.classList.add("active");
 //future weather 
 
 let futureWeatherIcons = document.querySelectorAll(".futureWeatherIcons");
-let futureDate = document.querySelectorAll("futuredate");
+let futureDate = document.querySelectorAll(".futuredate");
 let futureHigh = document.querySelectorAll(".highFutureWeather");
 let futureLow = document.querySelectorAll(".lowFutureWeather");
 
@@ -103,26 +103,28 @@ function showTemperatureName(response) {
 
 function showTemperature(response) {
   console.log(response);
-    let icon = response.data.current.weather[0].icon;
+  let icon = response.data.current.weather[0].icon;
   currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
-    humidity.innerHTML = `Humidity: ${response.data.current.humidity}°`;
-    wind.innerHTML = `Wind: <small>${Math.round(response.data.current.wind_speed)}mph/mps</small>`;
-    currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
-  if (response.data.daily[0].rain !== null) {
-     rain.innerHTML = `Precipitation: ${response.data.daily[0].rain}%`;
-  } else {
-    rain.innerHTML = `0%`
-  };
+  humidity.innerHTML = `Humidity: ${response.data.current.humidity}°`;
+  wind.innerHTML = `Wind: <small>${Math.round(response.data.current.wind_speed)}mph/mps</small>`;
+  currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
 
   for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
-      futureWeatherIcons[i].innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" class=futureWeatherImg >`;
-      futureDate[i].innerHTML = `${currentTime.getMonth() + 1}/${day + [i]}`;
-      let high = Math.round(response.data.daily[i].temp.max);
-      let low = Math.round(response.data.daily[i].temp.min);
-      futureHigh[i].innerHTML = `${high}°`
-      futureLow[i].innerHTML = `${low}°`
-  };
+    futureWeatherIcons[i].innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" class=futureWeatherImg>`;
+    futureDate[i].innerHTML = `${currentTime.getMonth() + 1}/${day + 1}`;
+     let high = Math.round(response.data.daily[i].temp.max);
+     let low = Math.round(response.data.daily[i].temp.min);
+     futureHigh[i].innerHTML = `${high}°`;
+     futureLow[i].innerHTML = `${low}°`;
+
+  }
+
+  if (response.data.daily[0].rain !== null) {
+    rain.innerHTML = `Precipitation: ${response.data.daily[0].rain}%`;
+  } else {
+    rain.innerHTML = `0%`;
+}
 };
 
 function showPosition(response) {
