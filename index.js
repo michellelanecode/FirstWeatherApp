@@ -45,8 +45,6 @@ let celciusLink = document.getElementById("metric")
 let kelvinConversion = 273.15 * 9 / 5 + 32;
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 let apiKey = "f2985cb429c8538026b7f0c5af55bd4f"
-celciusLink.classList.remove("active");
-fahrenheitLink.classList.add("active");
 
 //future weather 
 
@@ -117,15 +115,33 @@ function showTemperature(response) {
      let low = Math.round(response.data.daily[i].temp.min);
      futureHigh[i].innerHTML = `${high}°`;
      futureLow[i].innerHTML = `${low}°`;
-
   }
 
-  if (response.data.daily[0].rain !== null) {
-    rain.innerHTML = `Precipitation: ${response.data.daily[0].rain}%`;
-  } else {
-    rain.innerHTML = `0%`;
-}
 };
+
+
+//change celcius and fahrenheit 
+fahrenheitLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  axios.get(`${apiUrl}${currentCityName.innerHTML}&appid=${apiKey}`).then(showTemperatureName);
+});
+
+celciusLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  axios
+    .get(`${apiUrl}${currentCityName.innerHTML}&units=metric&appid=${apiKey}`)
+    .then(showTemperatureName);
+});
+
+
+
+
+
+//gps location
 
 function showPosition(response) {
     let lat = response.coords.latitude;
@@ -157,22 +173,8 @@ function changeWeather(event) {
                 .then(showTemperatureName);
 };
 
+
+
+
 findLocation.addEventListener("submit", changeWeather);
 
-//change celcius and fahrenheit 
-
-fahrenheitLink.addEventListener("click", (event) => {
-  event.preventDefault();
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  axios.get(`${apiUrl}${currentCityName.innerHTML}&appid=${apiKey}`).then(showTemperatureName);
-});
-
-celciusLink.addEventListener("click", (event) => {
-  event.preventDefault();
-  celciusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  axios
-    .get(`${apiUrl}${currentCityName.innerHTML}&units=metric&appid=${apiKey}`)
-    .then(showTemperatureName);
-});
