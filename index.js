@@ -83,6 +83,7 @@ function showTemperatureName(response) {
 }
 
 function showTemperature(response) {
+    console.log(response)
     let icon = response.data.current.weather[0].icon;
     let kelvinConversion = (response.data.current.temp - 273.15) * 9 / 5 + 32;
     currentTemp.innerHTML = `${Math.round(kelvinConversion)}°`
@@ -117,7 +118,6 @@ currentLocationButton.addEventListener("click", (event) => {
 // change city button responses
 
 function zipCodeCheck(response) {
-    console.log(response);
     let lat = response.data.lat;
     let lon = response.data.lon;
     axios
