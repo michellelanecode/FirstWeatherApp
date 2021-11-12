@@ -50,10 +50,10 @@ fahrenheitLink.classList.add("active");
 
 //future weather 
 
-let futureWeatherIcons = document.querySelectorAll(".futureWeatherIcons");
+let futureWeatherIcons = document.querySelectorAll("futureWeatherIcons");
 let futureDate = document.querySelectorAll("futuredate");
-let futureHigh = document.querySelectorAll(".highFutureWeather");
-let futureLow = document.querySelectorAll(".lowFutureWeather");
+let futureHigh = document.querySelectorAll("highFutureWeather");
+let futureLow = document.querySelectorAll("lowFutureWeather");
 
 
 function timeControls() {
