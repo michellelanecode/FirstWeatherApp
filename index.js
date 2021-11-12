@@ -117,7 +117,7 @@ function showTemperature(response) {
   for (let i = 0; i < 5; i++){
       let icon = response.data.daily[i].weather[0].icon;
       futureWeatherIcons[i].innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" class=futureWeatherImg>`;
-      futureDate[i].innerHTML = `${currentTime.getMonth() + 1}/${day + i}`;
+      futureDate[i].innerHTML = `${currentTime.getMonth() + 1}/${day + [i]}`;
       let high = Math.round(response.data.daily[i].temp.max);
       let low = Math.round(response.data.daily[i].temp.min);
       futureHigh[i].innerHTML = `${high}°`
