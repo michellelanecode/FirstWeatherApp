@@ -45,6 +45,7 @@ let celciusLink = document.getElementById("metric")
 let kelvinConversion = 273.15 * 9 / 5 + 32;
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 let apiKey = "f2985cb429c8538026b7f0c5af55bd4f"
+let container = document.querySelector(".container");
 
 //future weather 
 
@@ -60,7 +61,6 @@ function timeControls() {
         month = months[i];
       }
     }
-  
   if (min < 10) {
     min = `0${min}`;
   }
@@ -76,7 +76,8 @@ function timeControls() {
 timeControls();
 
 // current Time 
-todayDate.innerHTML = `${month} ${day}, ${year} </br> ${hour}:${min}`;
+todayDate.innerHTML = `${month} ${
+  day} ${hour}:${min}`;
 
 // current Location weather functions: 
 

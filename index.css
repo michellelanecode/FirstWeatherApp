@@ -1,19 +1,32 @@
 .container {
 border: 1px solid black;
 border-color: #ECB938;
-border-radius: 5px;
+border-radius: 30px;
 padding: 20px;
 max-height: 800px;
 max-width: 800px; 
 margin: 0px auto;
-}
+font-family: 'Courier New', Courier, monospace;
+position: absolute; top: 200px; left: 500px; 
+width: 100%;
+height: 100%
 
+}
 .currentWeatherInfo {
 display: grid;
 grid-template-columns: 1fr 1fr;
 padding: 20px;
 }
 
+
+.myVideo {
+width:100%; max-width:100%; margin:auto; display:block; position: relative; 
+}
+
+.video {
+width:100%; height:auto;
+
+}
 .searchBar {
     width: 800px;
     border-radius: 25px;
@@ -51,12 +64,14 @@ a {
 }
 
 #currentCity {
-    font-size: 25px;
+    font-size: 18px;
     position: relative;
     text-align: center;
 }
 #currentDate {
+    font-size: 18px;
     font-weight: lighter;
+    text-align: center;
 }
 
 .currentWeather {
@@ -66,6 +81,7 @@ a {
 
 .temperatureInfo {
     float: left;; 
+    padding: 15px;
 }
 
 
@@ -73,20 +89,21 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
-    color: #cc9b20;
+    
 }
 
 .futureDate {
+    font-size: large;
     font-style: italic;
 }
 
 
 .highFutureWeather{
-    font-size: small;
-    color: #F0C75E;
+    font-size: large;
+    
 }
 
 .lowFutureWeather {
-     font-size: small;
-     color: #967523;
-}
+     font-size: large;
+     
+};
