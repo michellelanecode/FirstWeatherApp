@@ -16,12 +16,8 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class= video>
-    <video autoplay muted loop id="myVideo">
-  <source src="images/pexels-al-d'vilas-5754043.mp4" type="video/mp4"></video>
-</div>
+    
     <div class="container" id="container">
-        
        <div class ="row">
         <div class="searching">
     <form>
@@ -30,43 +26,37 @@
         <button>Current Location</button>
     </form> 
 
-    
      <div class="currentWeatherInfo">
-                 <div class="city">
-            </div>
-            </div>
-            <div class="cityInfo">
-                    <div class ="currentWeather">
-                    <span id="currentWeatherIcon"></span>
-                    <span id="currentTemp">69°</span> 
-                    <span><a href="#" id="metric">°C</a>|<a href="#" id="imperial">°F</a></span>
-                </div>
-                </div>
-                <div class="tempInfo">
-                    <div class= "temperatureInfo">
-                    <ul>
+         <div id="currentCity">
+                <ul>
+               <li id="currentCityName"> Kissimmee, FL <li>
+                <li id="currentDate">
+                </li>
+                <li id="description">
+                </li>
+        
                         <li id="humidity">
                             Humidity
                         </li>
                         <li id="wind">
                             Wind
                         </li>
-                    </ul>
-                    </div>
-                </div><br>
-                <Br>
-                    <ul>
-           <span id="currentCity">
-               <li id="currentCityName"> Kissimmee, FL <li>
-                <li id="currentDate">
-                </li>
-                <li id="description">
-                </li>
+                    
             </ul>
-            </span>
-                <br>
-          
-    
+        </div> 
+            <div class="cityInfo">
+                    <div class ="currentWeather">
+                    <span id="currentWeatherIcon"></span>
+                    <span id="currentTemp">69°</span> 
+                    <span><a href="#" id="metric">°C</a>|<a href="#" id="imperial" class="active">°F</a></span>
+                </div>
+                </div>
+                <div class="tempInfo">
+                    <div class= "temperatureInfo">
+                   
+                    </div>
+                </div>
+            
   </div></div>
             <div id="futureForecast">
                     <div class="colInfo" id="dayOne">

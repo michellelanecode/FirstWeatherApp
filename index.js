@@ -72,7 +72,6 @@ function timeControls() {
   }
 };
 
-
 timeControls();
 
 // current Time 
@@ -104,21 +103,26 @@ function showTemperature(response) {
   console.log(response);
   let icon = response.data.current.weather[0].icon;
   currentTemp.innerHTML = `${Math.round(response.data.current.temp)}°`;
-  humidity.innerHTML = `Humidity: ${response.data.current.humidity}°`;
-  wind.innerHTML = `Wind: <small>${Math.round(response.data.current.wind_speed)}mph/mps</small>`;
+  humidity.innerHTML = `💦 Humidity: ${response.data.current.humidity}°`;
+  wind.innerHTML = ` 💨 Wind: <small>${Math.round(response.data.current.wind_speed)}mph/mps</small>`;
   currentWeatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png">`;
   let description = document.getElementById("description");
   description.innerHTML = `${response.data.current.weather[0].description}`;
   for (let i = 0; i < 5; i++){
-      let icon = response.data.daily[i].weather[0].icon;
+    let icon = response.data.daily[i].weather[0].icon;
     futureWeatherIcons[i].innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" class=futureWeatherImg>`;
-    futureDate[i].innerHTML = `${currentTime.getMonth() + 1}/${day + 1}`;
      let high = Math.round(response.data.daily[i].temp.max);
      let low = Math.round(response.data.daily[i].temp.min);
      futureHigh[i].innerHTML = `${high}°`;
-     futureLow[i].innerHTML = `${low}°`;
+    futureLow[i].innerHTML = `${low}°`;
+    for (let z = 1; z < 6; z++) {
+      futureDate[i].innerHTML = `${month} ${currentTime.getDate() + i}`
+      day+=1;
+    }
   }
 
+  
+  
 };
 
 
